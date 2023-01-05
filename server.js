@@ -9,6 +9,10 @@ app.get('/', (req, res) => {
   res.send(path.join(__dirname, './public/index.html'));
 });
 
+app.get('/notes', (req, res) => {
+  res.send(path.join(__dirname, './public/notes.html'));
+});
+
 
 
 app.listen(PORT);
