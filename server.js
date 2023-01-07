@@ -19,6 +19,6 @@ app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, './public/notes.html'));
 });
 
-
-
 app.listen(PORT);
+
+// TODO: when i click on a note it shows the whole note in the pane

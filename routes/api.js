@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const uuid = require('../helpers/uuid');
 const { readFileSync, readAndAppend } = require('../helpers/file');
 
 // GET Route for retrieving all the notes
@@ -18,6 +19,7 @@ router.post('/api/notes', (req, res) => {
     const newnote = {
       title,
       text,
+      id: uuid()
     };
 
     readAndAppend(newnote, './db/notes.json');
