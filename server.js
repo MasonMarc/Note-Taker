@@ -20,5 +20,3 @@ app.get('/notes', (req, res) => {
 });
 
 app.listen(PORT);
-
-// TODO: when i click on a note it shows the whole note in the pane

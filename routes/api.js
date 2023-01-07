@@ -2,16 +2,14 @@ const router = require('express').Router();
 const uuid = require('../helpers/uuid');
 const { readFileSync, readAndAppend } = require('../helpers/file');
 
-// GET Route for retrieving all the notes
 router.get('/api/notes', (req, res) => {
-  console.info(`${req.method} request received for notes`);
+  console.info(`${req.method} request received`);
   const data = readFileSync('./db/notes.json', 'utf8');
   res.json(JSON.parse(data));
 });
 
-// POST Route for a new UX/UI note
 router.post('/api/notes', (req, res) => {
-  console.info(`${req.method} request received to add a note`);
+  console.info(`${req.method} add request received`);
 
   const { title, text} = req.body;
 
@@ -23,9 +21,9 @@ router.post('/api/notes', (req, res) => {
     };
 
     readAndAppend(newnote, './db/notes.json');
-    res.json(`note added successfully 🚀`);
+    res.json(`note added`);
   } else {
-    res.error('Error in adding note');
+    res.error('Error');
   }
 });
 
